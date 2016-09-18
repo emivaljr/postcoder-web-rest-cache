@@ -12,7 +12,7 @@ import java.util.Map;
  * Created by emival on 17/09/16.
  */
 @Component
-public class IrishAdressRepository {
+public class IrishAddressConsumer {
 
     @Autowired
     private RestTemplate irishAddressRestTemplate;
