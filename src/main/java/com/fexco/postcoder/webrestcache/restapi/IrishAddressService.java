@@ -1,4 +1,4 @@
-package com.fexco.postcoder.webrestcache.rest;
+package com.fexco.postcoder.webrestcache.restapi;
 
 import com.fexco.postcoder.webrestcache.infra.constants.UrlPrefixConstants;
 import com.fexco.postcoder.webrestcache.integration.IrishAddressConsumer;

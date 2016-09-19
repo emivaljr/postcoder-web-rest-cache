@@ -12,7 +12,7 @@ public class RestUrlBuilder {
     private StringBuilder pathParam;
 
     public RestUrlBuilder(){
-        query = new StringBuilder("?");
+        query = new StringBuilder();
         pathParam = new StringBuilder();
     }
 
@@ -26,10 +26,13 @@ public class RestUrlBuilder {
     }
 
     public RestUrlBuilder urlVariables(Map<String,String> urlVariables){
-        for (String variable :urlVariables.keySet()){
-            query.append(String.format("%1$s={%1$s}&",variable));
+        if(urlVariables!= null && !urlVariables.isEmpty()){
+            query.append("?");
+            for (String variable :urlVariables.keySet()){
+                query.append(String.format("%1$s={%1$s}&",variable));
+            }
+            query.deleteCharAt(query.lastIndexOf("&"));
         }
-        query.deleteCharAt(query.lastIndexOf("&"));
         return this;
     }
 

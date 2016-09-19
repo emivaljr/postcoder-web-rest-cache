@@ -16,7 +16,7 @@ public abstract class AbstractAddressConsumer {
     private RestTemplate addressRestTemplate;
 
     public String exchange(String url, Map<String, String> params) {
-        ResponseEntity<String> responseEntity = addressRestTemplate.exchange(url, HttpMethod.GET, null, String.class, params);
+        ResponseEntity<String> responseEntity = addressRestTemplate.getForEntity(url, String.class, params);
         return responseEntity.getBody();
     }
 }
