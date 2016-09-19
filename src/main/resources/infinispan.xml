@@ -5,7 +5,35 @@
         xmlns="urn:infinispan:config:7.0">
 
    <cache-container default-cache="default">
-       <local-cache name="xml-configured-cache">
+       <local-cache name="lookup-irish-address">
+           <persistence passivation="false">
+               <!-- note that class is missing and is induced by the fileStore element name -->
+               <file-store
+                       shared="false"
+                       preload="true"
+                       fetch-state="true"
+                       read-only="false"
+                       purge="false"
+                       path="${java.io.tmpdir}">
+                   <write-behind flush-lock-timeout="15000" thread-pool-size="5" />
+               </file-store>
+           </persistence>
+       </local-cache>
+       <local-cache name="lookup-irish-address-geo">
+           <persistence passivation="false">
+               <!-- note that class is missing and is induced by the fileStore element name -->
+               <file-store
+                       shared="false"
+                       preload="true"
+                       fetch-state="true"
+                       read-only="false"
+                       purge="false"
+                       path="${java.io.tmpdir}">
+                   <write-behind flush-lock-timeout="15000" thread-pool-size="5" />
+               </file-store>
+           </persistence>
+       </local-cache>
+       <local-cache name="lookup-irish-reverse-address-geo">
            <persistence passivation="false">
                <!-- note that class is missing and is induced by the fileStore element name -->
                <file-store
