@@ -14,6 +14,12 @@ extracted from the JDK download.
 #### Compile and test; build all jars, distribution zips, and docs
 `./gradlew build`
 
+#### Build docker image
+`./gradlew buildDocker`
+
+#### Run docker
+docker run -p 8080:8080 -t com.fexco/postcoder-web-restapi-cache:1.0-SNAPSHOT
+
 
 
 
