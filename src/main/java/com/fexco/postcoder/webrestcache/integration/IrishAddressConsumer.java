@@ -1,10 +1,8 @@
 package com.fexco.postcoder.webrestcache.integration;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fexco.postcoder.webrestcache.infra.util.RestUrlBuilder;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Map;
 
@@ -12,16 +10,28 @@ import java.util.Map;
  * Created by emival on 17/09/16.
  */
 @Component
-public class IrishAddressConsumer {
+public class IrishAddressConsumer  extends AbstractAddressConsumer{
 
-    @Autowired
-    private RestTemplate irishAddressRestTemplate;
-
-    @Cacheable(cacheNames = "xml-configured-cache")
-    public String lookupIrishAddress(String adressFragment, Map<String, String> params){
-        ResponseEntity<String> responseEntity = irishAddressRestTemplate.getForEntity("/address/ie/" + adressFragment, String.class, params);
-        return responseEntity.getBody();
+    @Cacheable(cacheNames = "lookup-irish-address")
+    public String lookupAddress(String addressFragment, Map<String, String> params){
+        String url = new RestUrlBuilder()
+                    .prefix("/address/ie/")
+                    .addPathParam(addressFragment)
+                    .urlVariables(params)
+                    .build();
+        return exchange(url, params);
     }
+
+    @Cacheable(cacheNames = "lookup-irish-address-geo")
+    public String lookupAddressGeo(String addressFragment, Map<String, String> params){
+        String url = new RestUrlBuilder()
+                .prefix("/addressgeo/ie/")
+                .addPathParam(addressFragment)
+                .urlVariables(params)
+                .build();
+        return exchange(url, params);
+    }
+
 
 
 }
