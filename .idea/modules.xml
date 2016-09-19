@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/postcoder-web-rest-cache.iml" filepath="$PROJECT_DIR$/.idea/modules/postcoder-web-rest-cache.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/postcoder-web-rest-cache_main.iml" filepath="$PROJECT_DIR$/.idea/modules/postcoder-web-rest-cache_main.iml" group="postcoder-web-rest-cache" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/postcoder-web-rest-cache_test.iml" filepath="$PROJECT_DIR$/.idea/modules/postcoder-web-rest-cache_test.iml" group="postcoder-web-rest-cache" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/postcoder-web-restapi-cache.iml" filepath="$PROJECT_DIR$/.idea/modules/postcoder-web-restapi-cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/postcoder-web-restapi-cache_main.iml" filepath="$PROJECT_DIR$/.idea/modules/postcoder-web-restapi-cache_main.iml" group="postcoder-web-restapi-cache" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/postcoder-web-restapi-cache_test.iml" filepath="$PROJECT_DIR$/.idea/modules/postcoder-web-restapi-cache_test.iml" group="postcoder-web-restapi-cache" />
     </modules>
   </component>
 </project>
