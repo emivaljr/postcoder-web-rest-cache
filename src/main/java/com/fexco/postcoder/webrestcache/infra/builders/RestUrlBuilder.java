@@ -1,4 +1,4 @@
-package com.fexco.postcoder.webrestcache.infra.util;
+package com.fexco.postcoder.webrestcache.infra.builders;
 
 import java.util.Map;
 
