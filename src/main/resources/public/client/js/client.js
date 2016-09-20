@@ -14,11 +14,12 @@ $("#button1id").click(function () {
     }
   }
   paramJson['format'] = $('input[name=radio-result-format]:checked').val();
+  $('#result').html('');
   $.ajax({
       url: urlServer,
       data: paramJson
   }).then(function(data) {
-    $('#result').html('');
+
     $('<div/>').text(data).appendTo('#result');
   });
 });
