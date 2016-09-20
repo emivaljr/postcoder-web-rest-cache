@@ -23,13 +23,13 @@ import static org.mockito.BDDMockito.*;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class IrishAddressConsumerTest extends AbstractTest{
+public class UkAddressConsumerTest extends AbstractTest{
 
     @MockBean
     private RestTemplate addressRestTemplate;
 
     @Autowired
-    private IrishAddressConsumer irishAddressConsumer;
+    private UkAddressConsumer ukAddressConsumer;
 
 
     @Test
@@ -39,7 +39,7 @@ public class IrishAddressConsumerTest extends AbstractTest{
         Map<String, String> params = new HashMap<String, String>();
         params.put("lines", "3");
         params.put("format", "json");
-        String response = irishAddressConsumer.lookupAddress("D02X285", params);
+        String response = ukAddressConsumer.lookupAddress("D02X285", params);
         Assert.assertEquals(response, "testWithoutCache");
     }
     @Test
@@ -48,7 +48,7 @@ public class IrishAddressConsumerTest extends AbstractTest{
                 .getForEntity(contains("D02X285"), eq(String.class), anyMap()))
                 .willReturn(new ResponseEntity<String>("testWithoutCache", HttpStatus.OK));
         Map<String, String> params = new HashMap<String, String>();
-        String response = irishAddressConsumer.lookupAddress("D02X285", params);
+        String response = ukAddressConsumer.lookupAddress("D02X285", params);
         Assert.assertEquals(response, "testWithoutCache");
     }
     @Test
@@ -56,7 +56,7 @@ public class IrishAddressConsumerTest extends AbstractTest{
         given(this.addressRestTemplate
                 .getForEntity(contains("D02X285"), eq(String.class), anyMap()))
                 .willReturn(new ResponseEntity<String>("testWithoutCache", HttpStatus.OK));
-        String response = irishAddressConsumer.lookupAddress("D02X285", null);
+        String response = ukAddressConsumer.lookupAddress("D02X285", null);
         Assert.assertEquals(response, "testWithoutCache");
     }
 
@@ -67,7 +67,7 @@ public class IrishAddressConsumerTest extends AbstractTest{
         Map<String, String> params = new HashMap<String, String>();
         params.put("lines", "3");
         params.put("format", "json");
-        String response = irishAddressConsumer.lookupAddress("D02X285", params);
+        String response = ukAddressConsumer.lookupAddress("D02X285", params);
     }
 
     @Test
@@ -79,19 +79,19 @@ public class IrishAddressConsumerTest extends AbstractTest{
         Map<String, String> params = new HashMap<String, String>();
         params.put("lines", "3");
         params.put("format", "json");
-        String response = irishAddressConsumer.lookupAddress("D02X285", params);
+        String response = ukAddressConsumer.lookupAddress("D02X285", params);
         Assert.assertEquals(response, "testWithCache");
         //Second time should not call the RestTemplate class and return the same result as previous call
         given(this.addressRestTemplate
                 .getForEntity(contains("D02X285"), eq(String.class), anyMap()))
                 .willReturn(null);
-        response = irishAddressConsumer.lookupAddress("D02X285", params);
+        response = ukAddressConsumer.lookupAddress("D02X285", params);
         Assert.assertEquals(response, "testWithCache");
         //Third time with different params should call the RestTemplate class.
         given(this.addressRestTemplate
                 .getForEntity(contains("D02A285"), eq(String.class), anyMap()))
                 .willReturn(new ResponseEntity<String>("testWithCacheAndNewValue", HttpStatus.OK));
-        response = irishAddressConsumer.lookupAddress("D02A285", params);
+        response = ukAddressConsumer.lookupAddress("D02A285", params);
         Assert.assertEquals(response, "testWithCacheAndNewValue");
     }
 
@@ -103,7 +103,7 @@ public class IrishAddressConsumerTest extends AbstractTest{
         Map<String, String> params = new HashMap<String, String>();
         params.put("lines", "3");
         params.put("format", "json");
-        String response = irishAddressConsumer.lookupAddressGeo("D02X285", params);
+        String response = ukAddressConsumer.lookupAddressGeo("D02X285", params);
         Assert.assertEquals(response, "testWithoutCache");
     }
 
@@ -114,7 +114,7 @@ public class IrishAddressConsumerTest extends AbstractTest{
         Map<String, String> params = new HashMap<String, String>();
         params.put("lines", "3");
         params.put("format", "json");
-        String response = irishAddressConsumer.lookupAddressGeo("D02X285", params);
+        String response = ukAddressConsumer.lookupAddressGeo("D02X285", params);
     }
 
     @Test
@@ -123,7 +123,7 @@ public class IrishAddressConsumerTest extends AbstractTest{
                 .getForEntity(contains("D02X285"), eq(String.class), anyMap()))
                 .willReturn(new ResponseEntity<String>("testWithoutCache", HttpStatus.OK));
         Map<String, String> params = new HashMap<String, String>();
-        String response = irishAddressConsumer.lookupAddressGeo("D02X285", params);
+        String response = ukAddressConsumer.lookupAddressGeo("D02X285", params);
         Assert.assertEquals(response, "testWithoutCache");
     }
     @Test
@@ -131,7 +131,7 @@ public class IrishAddressConsumerTest extends AbstractTest{
         given(this.addressRestTemplate
                 .getForEntity(contains("D02X285"), eq(String.class), anyMap()))
                 .willReturn(new ResponseEntity<String>("testWithoutCache", HttpStatus.OK));
-        String response = irishAddressConsumer.lookupAddressGeo("D02X285", null);
+        String response = ukAddressConsumer.lookupAddressGeo("D02X285", null);
         Assert.assertEquals(response, "testWithoutCache");
     }
 
@@ -144,86 +144,25 @@ public class IrishAddressConsumerTest extends AbstractTest{
         Map<String, String> params = new HashMap<String, String>();
         params.put("lines", "3");
         params.put("format", "json");
-        String response = irishAddressConsumer.lookupAddressGeo("D02X285", params);
+        String response = ukAddressConsumer.lookupAddressGeo("D02X285", params);
         Assert.assertEquals(response, "testWithCache");
         //Second time should not call the RestTemplate class and return the same result as previous call
         given(this.addressRestTemplate
                 .getForEntity(contains("D02X285"), eq(String.class), anyMap()))
                 .willReturn(null);
-        response = irishAddressConsumer.lookupAddressGeo("D02X285", params);
+        response = ukAddressConsumer.lookupAddressGeo("D02X285", params);
         Assert.assertEquals(response, "testWithCache");
         //Third time with different params should call the RestTemplate class.
         given(this.addressRestTemplate
                 .getForEntity(contains("D02A285"), eq(String.class), anyMap()))
                 .willReturn(new ResponseEntity<String>("testWithCacheAndNewValue", HttpStatus.OK));
-        response = irishAddressConsumer.lookupAddressGeo("D02A285", params);
+        response = ukAddressConsumer.lookupAddressGeo("D02A285", params);
         Assert.assertEquals(response, "testWithCacheAndNewValue");
     }
 
-    @Test
-    public void testLookupReverseAddressGeo() {
-        given(this.addressRestTemplate
-                .getForEntity(contains("53.332067"), eq(String.class), anyMap()))
-                .willReturn(new ResponseEntity<String>("testWithoutCache", HttpStatus.OK));
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("lines", "3");
-        params.put("format", "json");
-        String response = irishAddressConsumer.lookupReverseAddressGeo("53.332067","-6.255492", params);
-        Assert.assertEquals(response, "testWithoutCache");
-    }
-    @Test(expected = HttpClientErrorException.class)
-    public void testLookupReverseAddressGeoInvalidKey() {
-        given(this.addressRestTemplate.getForEntity(contains("53.332067"), eq(String.class), anyMap()))
-                .willThrow(new HttpClientErrorException(HttpStatus.FORBIDDEN));
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("lines", "3");
-        params.put("format", "json");
-        String response = irishAddressConsumer.lookupReverseAddressGeo("53.332067","-6.255492", params);
 
-    }
-    @Test
-    public void testLookupReverseAddressGeoEmptyParams() {
-        given(this.addressRestTemplate
-                .getForEntity(contains("53.332067"), eq(String.class), anyMap()))
-                .willReturn(new ResponseEntity<String>("testWithoutCache", HttpStatus.OK));
-        Map<String, String> params = new HashMap<String, String>();
-        String response = irishAddressConsumer.lookupReverseAddressGeo("53.332067","-6.255492", params);
-        Assert.assertEquals(response, "testWithoutCache");
-    }
 
-    @Test
-    public void testLookupReverseAddressGeoNullParams() {
-        given(this.addressRestTemplate
-                .getForEntity(contains("53.332067"), eq(String.class), anyMap()))
-                .willReturn(new ResponseEntity<String>("testWithoutCache", HttpStatus.OK));
-        String response = irishAddressConsumer.lookupReverseAddressGeo("53.332067","-6.255492", null);
-        Assert.assertEquals(response, "testWithoutCache");
-    }
 
-    @Test
-    public void testLookupReverseAddressGeoCache() {
-        //First time to fill the cache.
-        given(this.addressRestTemplate
-                .getForEntity(contains("53.332067"), eq(String.class), anyMap()))
-                .willReturn(new ResponseEntity<String>("testWithCache", HttpStatus.OK));
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("lines", "3");
-        params.put("format", "json");
-        String response = irishAddressConsumer.lookupReverseAddressGeo("53.332067","-6.255492", null);
-        Assert.assertEquals(response, "testWithCache");
-        //Second time should not call the RestTemplate class and return the same result as previous call
-        given(this.addressRestTemplate
-                .getForEntity(contains("53.332067"), eq(String.class), anyMap()))
-                .willReturn(null);
-        response = irishAddressConsumer.lookupReverseAddressGeo("53.332067","-6.255492", null);
-        Assert.assertEquals(response, "testWithCache");
-        //Third time with different params should call the RestTemplate class.
-        given(this.addressRestTemplate
-                .getForEntity(contains("54.332067"), eq(String.class), anyMap()))
-                .willReturn(new ResponseEntity<String>("testWithCacheAndNewValue", HttpStatus.OK));
-        response = irishAddressConsumer.lookupReverseAddressGeo("54.332067","-6.255492", null);
-        Assert.assertEquals(response, "testWithCacheAndNewValue");
-    }
 
 
 

@@ -6,11 +6,23 @@
 
    <cache-container default-cache="default">
        <jmx duplicate-domains="true" />
-       <local-cache name="xml-configured-cache">
-           <persistence passivation="false">
-               <!-- note that class is missing and is induced by the fileStore element name -->
+       <local-cache name="lookup-irish-address">
 
-           </persistence>
+       </local-cache>
+       <local-cache name="lookup-irish-address-geo">
+
+       </local-cache>
+       <local-cache name="lookup-irish-reverse-address-geo">
+
+       </local-cache>
+       <local-cache name="lookup-irish-address-coordinate">
+
+       </local-cache>
+       <local-cache name="lookup-uk-address">
+
+       </local-cache>
+       <local-cache name="lookup-uk-address-geo">
+
        </local-cache>
    </cache-container>
 
