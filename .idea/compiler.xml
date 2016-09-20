@@ -21,6 +21,8 @@
     <bytecodeTargetLevel>
       <module name="postcoder-web-rest-cache_main" target="1.8" />
       <module name="postcoder-web-rest-cache_test" target="1.8" />
+      <module name="postcoder-web-restapi-cache_main" target="1.8" />
+      <module name="postcoder-web-restapi-cache_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

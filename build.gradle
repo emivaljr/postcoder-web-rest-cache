@@ -34,6 +34,7 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-cache:${springBootVersion}")
+    compile "org.springframework.boot:spring-boot-starter-aop:${springBootVersion}"
     testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
     compile group: 'org.infinispan', name: 'infinispan-spring4-embedded', version: '8.2.4.Final'
     compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.8.2'
