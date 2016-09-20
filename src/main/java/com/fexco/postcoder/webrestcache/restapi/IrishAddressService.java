@@ -26,6 +26,10 @@ public class IrishAddressService {
     public @ResponseBody String lookupAddressGeo(@PathVariable Optional<String> address, @RequestParam Map<String,String> allRequestParams){
         return irishAddressConsumer.lookupAddressGeo(address.isPresent()?address.get():"",allRequestParams);
     }
+    @RequestMapping(value = {UrlPrefixConstants.IRISH_ADDRESS_COORDINATE_LOOKUP+"{address}",UrlPrefixConstants.IRISH_ADDRESS_COORDINATE_LOOKUP})
+    public @ResponseBody String lookupAddressCoordinate(@PathVariable Optional<String> address, @RequestParam Map<String,String> allRequestParams){
+        return irishAddressConsumer.lookupAddressCoordinate(address.isPresent()?address.get():"",allRequestParams);
+    }
 
     @RequestMapping(value = {UrlPrefixConstants.IRISH_REVERSE_ADDRESS_GEO_LOOKUP+"{latitude}/{longitude:.+}",UrlPrefixConstants.IRISH_REVERSE_ADDRESS_GEO_LOOKUP})
     public @ResponseBody String lookupReverseAddressGeo(@PathVariable Optional<String> latitude,@PathVariable Optional<String> longitude, @RequestParam Map<String,String> allRequestParams){

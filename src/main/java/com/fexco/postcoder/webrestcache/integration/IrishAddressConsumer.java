@@ -27,7 +27,17 @@ public class IrishAddressConsumer  extends AbstractAddressConsumer{
     @Cacheable(cacheNames = CacheNamesConstants.IRISH_ADDRESS_GEO_LOOKUP)
     public String lookupAddressGeo(String addressFragment, Map<String, String> params){
         String url = new RestUrlBuilder()
-                .prefix(UrlPrefixConstants.IRISH_ADDRESS_LOOKUP)
+                .prefix(UrlPrefixConstants.IRISH_ADDRESS_GEO_LOOKUP)
+                .addPathParam(addressFragment)
+                .urlVariables(params)
+                .build();
+        return exchange(url, params);
+    }
+
+    @Cacheable(cacheNames = CacheNamesConstants.IRISH_ADDRESS_COORDINATE_LOOKUP)
+    public String lookupAddressCoordinate(String addressFragment, Map<String, String> params){
+        String url = new RestUrlBuilder()
+                .prefix(UrlPrefixConstants.IRISH_ADDRESS_COORDINATE_LOOKUP)
                 .addPathParam(addressFragment)
                 .urlVariables(params)
                 .build();

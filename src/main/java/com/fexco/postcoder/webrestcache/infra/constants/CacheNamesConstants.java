@@ -12,4 +12,9 @@ public class CacheNamesConstants {
     public static final String IRISH_REVERSE_ADDRESS_GEO_LOOKUP = "lookup-irish-reverse-address-geo";
 
 
+    public static final String IRISH_ADDRESS_COORDINATE_LOOKUP = "lookup-irish-address-coordinate";
+
+    public static final String UK_ADDRESS_LOOKUP = "lookup-uk-address";
+
+    public static final String UK_ADDRESS_GEO_LOOKUP = "lookup-uk-address-geo";
 }
