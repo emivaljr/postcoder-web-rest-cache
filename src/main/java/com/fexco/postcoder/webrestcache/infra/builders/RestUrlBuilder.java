@@ -3,7 +3,9 @@ package com.fexco.postcoder.webrestcache.infra.builders;
 import java.util.Map;
 
 /**
- * Created by emival on 18/09/16.
+ * Builder implementation for assembly URL calls for Postcoder Web API.
+ * @author Emival Junior
+ * @version 1.0
  */
 public class RestUrlBuilder {
 

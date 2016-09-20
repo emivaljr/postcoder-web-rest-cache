@@ -12,7 +12,10 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 /**
- * Created by emival on 18/09/16.
+ * Responsible for Handling Exceptions that Service and Consumer throw to Controller's classes.
+ * It is important to avoid boilerplate exception handling in every call.
+ * @author Emival Junior
+ * @version 1.0
  */
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {

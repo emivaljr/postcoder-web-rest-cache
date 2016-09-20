@@ -8,14 +8,23 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Map;
 
 /**
- * Created by emival on 18/09/16.
+ * This is a Abstraction of Consumer implementation that include commom implementation of
+ * Address Consumers.
+ * @author Emival Junior
+ * @version 1.0
  */
 public abstract class AbstractAddressConsumer {
 
     @Autowired
     private RestTemplate addressRestTemplate;
 
-    public String exchange(String url, Map<String, String> params) {
+    /**
+     * This method wraps exchange call of Spring RestTemplate method.
+     * @param url URL
+     * @param params exchange call request params
+     * @return result of the RestTemplate Call.
+     */
+    protected String exchange(String url, Map<String, String> params) {
         ResponseEntity<String> responseEntity = addressRestTemplate.getForEntity(url, String.class, params);
         return responseEntity.getBody();
     }

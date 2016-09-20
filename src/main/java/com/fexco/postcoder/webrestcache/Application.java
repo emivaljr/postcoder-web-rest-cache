@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * This is the main Spring Boot Class and is executed in order to run the project.
- *
- * Created by emival on 17/09/16.
+ * @author Emival Junior
+ * @version 1.0
  */
 @SpringBootApplication
 public class Application {
