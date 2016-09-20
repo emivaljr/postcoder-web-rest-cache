@@ -8,7 +8,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by emival on 19/09/16.
+ * Wraps Log calls for Application API.
+ * It is important to avoid boilerplate log code in every call.
+ * @author Emival Junior
+ * @version 1.0
  */
 @Component
 @Aspect

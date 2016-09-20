@@ -19,7 +19,9 @@ import java.util.Map;
 import static org.mockito.BDDMockito.*;
 
 /**
- * Created by emival on 17/09/16.
+ * Test class of Uk Address Consumer
+ * @author Emival Junior
+ * @version 1.0
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

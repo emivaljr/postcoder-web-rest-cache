@@ -1,7 +1,9 @@
 package com.fexco.postcoder.webrestcache.infra.constants;
 
 /**
- * Created by emival on 18/09/16.
+ * Constants of CacheName grouped helping to track changes.
+ * @author Emival Junior
+ * @version 1.0
  */
 public class CacheNamesConstants {
 

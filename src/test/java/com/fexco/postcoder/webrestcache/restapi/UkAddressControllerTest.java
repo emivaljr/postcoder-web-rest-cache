@@ -22,7 +22,9 @@ import static org.mockito.Matchers.anyMap;
 import static org.mockito.Matchers.contains;
 
 /**
- * Created by emival on 19/09/16.
+ * Test class of UK Address Controller
+ * @author Emival Junior
+ * @version 1.0
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT,properties = "application.properties")

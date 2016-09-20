@@ -6,7 +6,9 @@ import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 
 /**
- * Created by emival on 19/09/16.
+ * Abstract Test class for common test code implementation.
+ * @author Emival Junior
+ * @version 1.0
  */
 public class AbstractTest {
 

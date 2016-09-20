@@ -12,13 +12,17 @@ extracted from the JDK download.
 `git clone https://github.com/emivaljr/postcoder-web-rest-cache.git`
 
 #### Compile and test; build all jars, distribution zips, and docs
-`./gradlew build`
+
+Execute inside git folder: `./gradlew build`
 
 #### Build docker image
 `./gradlew buildDocker`
 
 #### Run docker
 docker run -p 8080:8080 -t com.fexco/postcoder-web-restapi-cache:1.0-SNAPSHOT
+
+#### Access the HTML/JS client
+http://localhost:8080/client/index.html
 
 
 

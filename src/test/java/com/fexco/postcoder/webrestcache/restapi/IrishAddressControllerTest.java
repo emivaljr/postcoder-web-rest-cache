@@ -22,7 +22,9 @@ import static org.mockito.Matchers.contains;
 import static org.mockito.BDDMockito.*;
 
 /**
- * Created by emival on 19/09/16.
+ * Test class of Irish Address Controller
+ * @author Emival Junior
+ * @version 1.0
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT,properties = "application.properties")
