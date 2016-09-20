@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Rest API for PostcoderWeb</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+      <div class=" col-lg-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title"> <a data-toggle="collapse"  href="#collapse2" class="collapseWill"> <span class="pull-left"> <i class="fa fa-caret-right"></i></span> </a> </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <form class="form-horizontal">
+              <fieldset>
+
+                <!-- Form Name -->
+                <legend>Rest API Options</legend>
+
+                <!-- Multiple Radios -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="radios">Address Type</label>
+                  <div class="col-md-6">
+                    <label class="radio-inline" for="radios-0">
+                      <input name="radio-address-type" id="radios-0" value="uk"  type="radio">
+                      UK addresses </label>
+                    <label class="radio-inline" for="radios-1">
+                      <input name="radio-address-type" id="radios-1" value="ie" checked="checked" type="radio">
+                      Irish addresses </label>
+                  </div>
+                </div>
+
+                <!-- Multiple Radios (inline) -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="radios">Lookup Service</label>
+                  <div class="col-md-6">
+
+                    <div class="radio">
+                      <label for="radios-0">
+                        <input name="radio-lookup-service" id="radio-lookup-service-0" value="address" checked="checked" type="radio">
+                        Address lookup </label>
+                    </div>
+                    <div class="radio">
+                      <label for="radios-1">
+                        <input name="radio-lookup-service" id="radio-lookup-service-1" value="addressgeo" type="radio">
+                          Address and coordinate lookup </label>
+                    </div>
+                    <div class="radio radio-irish-service">
+                      <label for="radios-1">
+                        <input name="radio-lookup-service" id="radio-lookup-service-2" value="position" type="radio">
+                        Coordinate lookup </label>
+                    </div>
+                    <div class="radio radio-irish-service">
+                      <label for="radios-1">
+                        <input name="radio-lookup-service" id="radio-lookup-service-3" value="rgeo" type="radio">
+                        Reverse geocode coordinates to an Irish address </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="textinput">Server Address</label>
+                  <div class="col-md-4">
+                    <input id="serveraddressinput" name="serveraddress" value="http://localhost:8080" class="form-control input-md" type="text">
+                  </div>
+                </div>
+                <div class="form-group div-search-address">
+                  <label class="col-md-4 control-label" for="textinput">Search Address</label>
+                  <div class="col-md-4">
+                    <input id="searchaddressinput" name="searchaddress" value="D02X285" class="form-control input-md" type="text">
+                  </div>
+                </div>
+                <div class="form-group div-rgeo" style="display:none">
+                  <label class="col-md-4 control-label" for="textinput">Latitude</label>
+                  <div class="col-md-4">
+                    <input id="latitudeinput" name="latitude" value="53.332067" class="form-control input-md" type="text">
+                  </div>
+                </div>
+                <div class="form-group div-rgeo" style="display:none">
+                  <label class="col-md-4 control-label" for="textinput">Longitude</label>
+                  <div class="col-md-4">
+                    <input id="longitudeinput" name="longitude" value="-6.255492" class="form-control input-md" type="text">
+                  </div>
+                </div>
+                <div class="form-group div-rgeo" style="display:none">
+                  <label class="col-md-4 control-label" for="textinput">distance</label>
+                  <div class="col-md-4">
+                    <input id="distanceinput" name="distance" value="" class="form-control input-md" type="text">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="textinput">lines</label>
+                  <div class="col-md-4">
+                    <input id="linesinput" name="lines" value="" class="form-control input-md" type="text">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="textinput">include</label>
+                  <div class="col-md-4">
+                    <input id="includeinput" name="include" value="" class="form-control input-md" type="text">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="textinput">exclude</label>
+                  <div class="col-md-4">
+                    <input id="excludeinput" name="exclude" value="" class="form-control input-md" type="text">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="textinput">identifier</label>
+                  <div class="col-md-4">
+                    <input id="identifierinput" name="identifier" value="" class="form-control input-md" type="text">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="radios">Result Format</label>
+                  <div class="col-md-6">
+                    <label class="radio-inline" for="radios-0">
+                      <input name="radio-result-format" id="radio-result-0" value="json" checked="checked"  type="radio">
+                      Json </label>
+                    <label class="radio-inline" for="radios-1">
+                      <input name="radio-result-format" id="radio-result-1" value="xml" type="radio">
+                      Xml </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="button1id"></label>
+                  <div class="col-md-8">
+                    <button id="button1id" name="button1id" class="btn btn-success" onclick="return false;">Send</button>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <pre id="result"></pre>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/client.js"></script>
+  </body>
+</html>
